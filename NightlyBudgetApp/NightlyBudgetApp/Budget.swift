@@ -10,7 +10,7 @@ import SwiftUI
 
 class Budget: ObservableObject{
     
-    @Published var currentBudge : Int  = 20
+    @Published var currentBudge : Int  = 0
     
     
     func transaction ( amount: Int)
