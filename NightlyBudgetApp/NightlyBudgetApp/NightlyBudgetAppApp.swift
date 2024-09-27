@@ -11,7 +11,8 @@ import SwiftUI
 struct NightlyBudgetAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let budget = Budget()
+            ContentView(budgeteyman:budget)
         }
     }
 }

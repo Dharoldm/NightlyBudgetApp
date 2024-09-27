@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var budgeteyman : Budget
     @State var items = [
-        PurchaseItem(Name:"Coke", Price: 20)
+        PurchaseItem(Name:"Coke", Price: 200)
     ]
-    
+    @State var currentTotal = 0
     var body: some View {
         Text("Here's what you bought")
         List(items) { item in
@@ -19,9 +20,11 @@ struct ContentView: View {
                 Text(item.Name)
                 Text(String(item.Price))
                 
+            }.onTapGesture {
+                budgeteyman.transaction(amount: item.Price)
             }
         }.padding().listStyle(InsetGroupedListStyle())
-        
+        Text("You have spent "+String(budgeteyman.currentBudge))
     }
 }
 
@@ -33,5 +36,6 @@ struct PurchaseItem : Identifiable{
 }
 
 #Preview {
-    ContentView()
+    let budget = Budget()
+    ContentView(budgeteyman : budget)
 }
