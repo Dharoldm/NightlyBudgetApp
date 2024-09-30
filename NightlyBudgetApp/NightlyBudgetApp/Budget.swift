@@ -15,7 +15,7 @@ class Budget: ObservableObject{
     
     func transaction ( amount: Int)
     {
-        print("We have updated budget by" + String(amount))
+        print("We have updated budget by " + String(amount))
         currentBudge += amount
         print("Currentbudge is now "+String(currentBudge))
         

@@ -10,12 +10,27 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var budgeteyman : Budget
     @State var items = [
-        PurchaseItem(Name:"Coke", Price: 200),
-        PurchaseItem(Name:"Pepsi", Price: 20)
+        PurchaseItem(Name:"Coke", Price: 3),
+        PurchaseItem(Name:"Pepsi", Price: 2)
     ]
     @State var currentTotal = 0
     var body: some View {
         Text("Here's what you bought")
+        Image(systemName: "plus")
+            .resizable()
+            .padding(6)
+            .frame(width: 24, height: 24)
+            .background(Color.blue)
+            .clipShape(Circle())
+            .foregroundColor(.white)
+            .onTapGesture {
+                print("Button Press")
+            }
+        Button(  "Some Text",
+                 action: {
+            budgeteyman.transaction(amount: 4)
+                 }
+        )
         List(items) { item in
             HStack(){
                 Text(item.Name)
