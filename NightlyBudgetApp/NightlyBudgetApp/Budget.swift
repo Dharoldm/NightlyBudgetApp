@@ -11,7 +11,7 @@ import SwiftUI
 class Budget: ObservableObject{
     
     @Published var currentBudge : Int  = 0
-    
+    @Published var items = [PurchaseItem]()
     
     func transaction ( amount: Int)
     {
@@ -19,5 +19,16 @@ class Budget: ObservableObject{
         currentBudge += amount
         print("Currentbudge is now "+String(currentBudge))
         
+    }
+    func addItem(amount: Int, name: String)
+    {
+        items.append(PurchaseItem(Name:name, Price:amount))
+    
+    }
+    struct PurchaseItem : Identifiable{
+        var id = UUID()
+        var Name: String
+        var Price: Int
+
     }
 }
