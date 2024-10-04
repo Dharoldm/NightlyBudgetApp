@@ -11,7 +11,7 @@ import SwiftUI
 class Budget: ObservableObject{
     
     @Published var currentBudge : Int  = 0
-    @Published var items = [PurchaseItem]()
+    @Published var items = [PurchaseItem(Name: "Test", Price:50)]
     
     func transaction ( amount: Int)
     {
