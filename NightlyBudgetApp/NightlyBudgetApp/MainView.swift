@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var budgeteyman : Budget
-    @State var currentTotal = 0
-    @State private var name: String = "Tim"
+    @State var amount = "0"
+    @State private var name: String = "Nothing"
     let paddingAmount: CGFloat = 20
     var body: some View {
         Text("Here's what you bought")
@@ -34,7 +34,7 @@ struct ContentView: View {
             HStack{
                 Button(
                 action: {
-                    budgeteyman.addItem(amount: 4, name: "newItem")
+                    budgeteyman.addItem(amount: Int(amount) ?? 0, name: name)
                 }
             )
                 {
@@ -47,14 +47,21 @@ struct ContentView: View {
                         .foregroundColor(.white)
                 }
                 .padding(.leading, paddingAmount)
+                    TextField(text: $name, prompt: Text("Required")) {
+                        Text("Username")
+                    }
+                TextField(text: $amount, prompt: Text("Required")) {
+                        Text("Password")
+                    }
+                
             }
-            Text("You have spent "+String(budgeteyman.currentBudge))
+            
             //TextField("Enter your name", text: $name)
             //            Text("Hello, \(name)!")
         }
+        Text("You have spent "+String(budgeteyman.currentBudge))
     }
 }
-
 
 
 #Preview {
