@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct NightlyBudgetAppApp: App {
     var body: some Scene {
         WindowGroup {
+            //Query var items: [PurchaseItem]
             let budget = Budget()
             ContentView(budgeteyman:budget)
         }
+        .modelContainer(for: PurchaseItem.self)
     }
+        
 }
+
+
+

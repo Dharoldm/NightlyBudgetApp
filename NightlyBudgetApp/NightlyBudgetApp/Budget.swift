@@ -11,7 +11,23 @@ import SwiftUI
 class Budget: ObservableObject{
     
     @Published var currentBudge : Int  = 0
-    @Published var items = [PurchaseItem(Name: "Test", Price:50)]
+    @Published var items: [PurchaseItem] = []
+    init(price: Int, name: String) {
+        self.items.append(PurchaseItem(Name:name, Price:price))
+        }
+    
+    init() {
+        
+    }
+    
+    init(preloads: [PurchaseItem])
+    {
+        for item in preloads
+        {
+            self.items.append(item)
+        }
+        
+    }
     
     func transaction ( amount: Int)
     {
@@ -22,13 +38,9 @@ class Budget: ObservableObject{
     }
     func addItem(amount: Int, name: String)
     {
-        items.append(PurchaseItem(Name:name, Price:amount))
+        self.items.append(PurchaseItem(Name:name, Price:amount))
     
     }
-    struct PurchaseItem : Identifiable{
-        var id = UUID()
-        var Name: String
-        var Price: Int
-
-    }
 }
+
+
