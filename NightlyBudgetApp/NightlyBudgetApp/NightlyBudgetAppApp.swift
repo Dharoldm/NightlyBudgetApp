@@ -12,11 +12,9 @@ import SwiftData
 struct NightlyBudgetAppApp: App {
     var body: some Scene {
         WindowGroup {
-            //Query var items: [PurchaseItem]
-            let budget = Budget()
-            ContentView(budgeteyman:budget)
+            TabsView()
         }
-        .modelContainer(for: PurchaseItem.self)
+        .modelContainer(for: Tab.self)
     }
         
 }

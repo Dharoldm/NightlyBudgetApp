@@ -8,21 +8,21 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
-    @Query var items: [PurchaseItem]
+struct TabView: View {
+    @Query var tabs: [Tab]
+    var tab : Tab
     @Environment(\.modelContext) var modelContext
-    @StateObject var budgeteyman : Budget
     @State var amount = "0"
     @State private var name: String = "Nothing"
 
     
     let paddingAmount: CGFloat = 20
     var body: some View {
-        Text("Here's what you bought")
+        Text("Here's what you bought from "+tab.Name)
             .padding()
         VStack(alignment: .center){
             
-            if items.isEmpty {
+            if tab.Items.isEmpty {
                 // Fallback view when the array is empty
                 Text("Add an item to the list!")
                     .foregroundColor(.gray)
@@ -30,19 +30,17 @@ struct ContentView: View {
                     .padding()
             }
             else{
-                List{ ForEach(items) { item in
+                List{ ForEach(tab.Items) { item in
                     HStack(){
                         Text(item.Name)
                         Text(String(item.Price))
                         
-                    }.onAppear{
-                        budgeteyman.transaction(amount: item.Price)
                     }
                     //.background(Color.green)
                     
                 }.onDelete(perform: deletePurchaseItems)
                 .padding(.leading, paddingAmount) .listStyle(PlainListStyle())
-                .frame(maxHeight: CGFloat(budgeteyman.items.count * 42)) // Assuming each row height is around 44
+                .frame(maxHeight: CGFloat(tab.Items.count * 42)) // Assuming each row height is around 44
                     
                     //.background(Color.blue) //To show extra space
                     //.listRowInsets(EdgeInsets())
@@ -79,20 +77,26 @@ struct ContentView: View {
             }
             
         }
-        Text("You have spent "+String(budgeteyman.currentBudge))
+        Text("You have spent "+String(GetTotal()))
         
     }
     func addSomething(){
-        budgeteyman.addItem(amount: Int(amount) ?? 0, name: name)
         let item = PurchaseItem(Name: name, Price: Int(amount) ?? 0)
-        modelContext.insert(item)
+        tab.Items.insert(item, at: tab.Items.endIndex)
     }
     
+    func GetTotal() -> Int{
+        var total = 0
+        for item in tab.Items{
+                total = total + item.Price
+            }
+        return total
+        }
+             
     func deletePurchaseItems(_ indexSet: IndexSet){
         for index in indexSet {
-            let purchaseItem = items[index]
+            let purchaseItem = tab.Items[index]
             modelContext.delete(purchaseItem)
-            budgeteyman.transaction(amount: purchaseItem.Price * -1)
         }
     }
 }
@@ -100,6 +104,6 @@ struct ContentView: View {
 
 #Preview {
     @Previewable @Query var items: [PurchaseItem]
-    let budget = Budget()
-    ContentView(budgeteyman : budget)
+    let example : Tab = Tab(Name: "Example")
+    TabView(tab: example)
 }
