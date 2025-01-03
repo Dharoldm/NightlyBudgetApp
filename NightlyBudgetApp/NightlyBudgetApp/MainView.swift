@@ -12,8 +12,8 @@ struct TabView: View {
     @Query var tabs: [Tab]
     var tab : Tab
     @Environment(\.modelContext) var modelContext
-    @State var amount = "0"
-    @State private var name: String = "Nothing"
+    @State var amount = ""
+    @State private var name: String = ""
 
     
     let paddingAmount: CGFloat = 20
@@ -62,15 +62,17 @@ struct TabView: View {
                         .clipShape(Circle())
                         .foregroundColor(.white)
                 }
-                .padding(.leading, paddingAmount-12)
-                TextField(text: $name, prompt: Text("Required")) {
+                .padding(.leading, paddingAmount-10)
+                TextField(text: $name, prompt: Text("Enter the Purchase")) {
                     Text("Username")
-                }.background(RoundedRectangle(cornerRadius: 10)
+                }.padding(.leading, 10)
+                    .background(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.gray, lineWidth: 1)) // Add rounded rectangle around TextField
                 
-                TextField(text: $amount, prompt: Text("Required")) {
+                TextField(text: $amount, prompt: Text("Enter the Amount")) {
                     Text("Password")
-                }.background(RoundedRectangle(cornerRadius: 10)
+                }.padding(.leading, 10)
+                    .background(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.gray, lineWidth: 1)) // Add rounded rectangle around TextField
                 
                 
@@ -81,22 +83,22 @@ struct TabView: View {
         
     }
     func addSomething(){
-        let item = PurchaseItem(Name: name, Price: Int(amount) ?? 0)
+        let item = PurchaseItem(Name: name, Price: Double(amount) ?? 0)
         tab.Items.insert(item, at: tab.Items.endIndex)
     }
     
-    func GetTotal() -> Int{
-        var total = 0
+    func GetTotal() -> Double{
+        var total = 0.0
         for item in tab.Items{
                 total = total + item.Price
             }
+        //tab.TotalUp()
         return total
         }
              
     func deletePurchaseItems(_ indexSet: IndexSet){
         for index in indexSet {
-            let purchaseItem = tab.Items[index]
-            modelContext.delete(purchaseItem)
+            tab.Items.remove(at: index)
         }
     }
 }

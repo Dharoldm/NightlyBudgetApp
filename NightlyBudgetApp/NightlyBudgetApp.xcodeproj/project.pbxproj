@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E9F74B52CA7435F003FA5D2 /* NightlyBudgetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightlyBudgetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E9F74B52CA7435F003FA5D2 /* Bar Tab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9F74C52CA74361003FA5D2 /* NightlyBudgetAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlyBudgetAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9F74CF2CA74361003FA5D2 /* NightlyBudgetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlyBudgetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 		1E9F74B62CA7435F003FA5D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E9F74B52CA7435F003FA5D2 /* NightlyBudgetApp.app */,
+				1E9F74B52CA7435F003FA5D2 /* Bar Tab.app */,
 				1E9F74C52CA74361003FA5D2 /* NightlyBudgetAppTests.xctest */,
 				1E9F74CF2CA74361003FA5D2 /* NightlyBudgetAppUITests.xctest */,
 			);
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1E9F74B42CA7435F003FA5D2 /* NightlyBudgetApp */ = {
+		1E9F74B42CA7435F003FA5D2 /* Bar Tab */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E9F74D92CA74361003FA5D2 /* Build configuration list for PBXNativeTarget "NightlyBudgetApp" */;
+			buildConfigurationList = 1E9F74D92CA74361003FA5D2 /* Build configuration list for PBXNativeTarget "Bar Tab" */;
 			buildPhases = (
 				1E9F74B12CA7435F003FA5D2 /* Sources */,
 				1E9F74B22CA7435F003FA5D2 /* Frameworks */,
@@ -110,11 +110,11 @@
 			fileSystemSynchronizedGroups = (
 				1E9F74B72CA7435F003FA5D2 /* NightlyBudgetApp */,
 			);
-			name = NightlyBudgetApp;
+			name = "Bar Tab";
 			packageProductDependencies = (
 			);
 			productName = NightlyBudgetApp;
-			productReference = 1E9F74B52CA7435F003FA5D2 /* NightlyBudgetApp.app */;
+			productReference = 1E9F74B52CA7435F003FA5D2 /* Bar Tab.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1E9F74C42CA74361003FA5D2 /* NightlyBudgetAppTests */ = {
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E9F74B42CA7435F003FA5D2 /* NightlyBudgetApp */,
+				1E9F74B42CA7435F003FA5D2 /* Bar Tab */,
 				1E9F74C42CA74361003FA5D2 /* NightlyBudgetAppTests */,
 				1E9F74CE2CA74361003FA5D2 /* NightlyBudgetAppUITests */,
 			);
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		1E9F74C72CA74361003FA5D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1E9F74B42CA7435F003FA5D2 /* NightlyBudgetApp */;
+			target = 1E9F74B42CA7435F003FA5D2 /* Bar Tab */;
 			targetProxy = 1E9F74C62CA74361003FA5D2 /* PBXContainerItemProxy */;
 		};
 		1E9F74D12CA74361003FA5D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1E9F74B42CA7435F003FA5D2 /* NightlyBudgetApp */;
+			target = 1E9F74B42CA7435F003FA5D2 /* Bar Tab */;
 			targetProxy = 1E9F74D02CA74361003FA5D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -396,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NightlyBudgetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = A445LP6A9Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,6 +425,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NightlyBudgetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = A445LP6A9Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -524,7 +526,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E9F74D92CA74361003FA5D2 /* Build configuration list for PBXNativeTarget "NightlyBudgetApp" */ = {
+		1E9F74D92CA74361003FA5D2 /* Build configuration list for PBXNativeTarget "Bar Tab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E9F74DA2CA74361003FA5D2 /* Debug */,

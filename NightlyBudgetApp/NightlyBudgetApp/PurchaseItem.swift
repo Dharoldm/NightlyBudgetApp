@@ -12,9 +12,9 @@ import SwiftData
 class PurchaseItem{
     var id = UUID()
     var Name: String
-    var Price: Int
+    var Price: Double
     
-    init(Name: String="", Price: Int=0){
+    init(Name: String="", Price: Double=0){
         self.Name = Name
         self.Price = Price
     }

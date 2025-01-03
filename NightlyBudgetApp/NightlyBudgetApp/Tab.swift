@@ -12,10 +12,14 @@ import SwiftData
 class Tab{
     var Name : String
     var Items : [PurchaseItem]
+    var Total: Double {
+        Items.reduce(0) { $0 + $1.Price }
+    }
     
     init(Name: String="", Items: [PurchaseItem] = [])
     {
         self.Name = Name
         self.Items = Items
     }
+    
 }
