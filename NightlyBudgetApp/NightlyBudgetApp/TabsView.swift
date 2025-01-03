@@ -56,7 +56,7 @@ struct TabsView: View{
                     Text("Username")
                 }.padding(.leading, 10).background(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.gray, lineWidth: 1))
-                .on// Add rounded rectangle around TextField
+                // Add rounded rectangle around TextField
                 
             }
         }
